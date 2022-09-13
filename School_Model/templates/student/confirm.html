@@ -1,0 +1,18 @@
+{% extends 'student/base.html' %}
+
+{% block title %}
+    Confirm
+{% endblock title %}
+    
+
+{% block body %}
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <h2>Are you sure do you want to delete {{stud.student_name}} record?</h2>
+            <input type="submit" value="Confirm" class="btn btn-danger"/>
+            <a href="/studlist" class="btn btn-primary">NO</a>
+        </form>
+    </div>
+{% endblock body %}
+    

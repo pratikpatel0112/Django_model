@@ -1,0 +1,25 @@
+{% extends 'student/base.html' %}
+
+
+{% block title %}
+    Student Form
+{% endblock title %}
+    
+
+{% block body %}
+<div class="container">
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        <table class="table">
+            {{studform.as_table}}
+            <tr>
+                <td colspan="2" align="right">
+                    <input type="submit" value="save" class="btn btn-success">
+                    <input type="reset" value="clear" class="btn btn-danger">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock body %}
+    

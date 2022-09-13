@@ -1,0 +1,59 @@
+{% extends 'student/base.html' %}
+
+
+{% block title %}
+    Student List
+{% endblock title %}
+    
+
+{% block body %}
+
+{% comment %}
+{{studlist}}       
+{% endcomment %}
+  
+        <div class="container">
+            
+            {% for msg in messages %}
+                {% if msg %}
+                    <div class="alert alert-success">
+                        {{msg}}
+                    </div>
+                {% endif %}
+            {% endfor %}
+                <br>
+            <table class="table ">
+                <tr>
+                    <th>Student Id</th>
+                    <th>Student Name
+                        <a href="/nameaes"><i class="bi bi-arrow-up-square"></i></a>
+                        <a href="/namedesc"><i class="bi bi-arrow-down-square"></i></a>
+                    </th>
+                    <th>Student Email
+                        <a href="/emailaes"><i class="bi bi-arrow-up-square"></i></a>
+                        <a href="/emaildesc"><i class="bi bi-arrow-down-square"></i></a>
+                    </th>
+                    <th>Student Fees 
+                        <a href="/feesaes"><i class="bi bi-arrow-up-square"></i></a>
+                        <a href="/feesdesc"><i class="bi bi-arrow-down-square"></i></a>
+                    </th>
+                    <th>Action</th>
+                </tr>
+                {% for stud in studlist  %}
+                <tr>
+                    <td>{{stud.student_id}}</td>
+                    <td>{{stud.student_name}}</td>
+                    <td>{{stud.student_email}}</td>
+                    <td>{{stud.student_fees}}</td>
+                    <td>
+                        <a href="delete/{{stud.student_id}}"><i class="bi bi-trash3-fill"></i></a>
+
+                        <a href="update/{{stud.student_id}}"><i class="bi bi-pencil-square"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+            
+{% endblock body %}
+    
